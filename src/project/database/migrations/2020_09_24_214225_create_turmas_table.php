@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateTurmasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
             $table->string('nome',30);
-            $table->string('sobrenome',100);
-            $table->string('cpfcpnj',14);
-            $table->string('email',199)->unique();
-            $table->string('imagem',199)->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->enum('turno', [1,2,3])->index();// 1=> Manhã, 2=> Tarde, 3=> Noite
+            $table->unsignedBigInteger('cursos_id')->index();
+            $table->foreign('cursos_id')->references('id')->on('cursos');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('turmas');
     }
 }
