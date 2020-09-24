@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('cpfcpnj',14);
             $table->string('email',199)->unique();
             $table->string('imagem',199)->nullable();
+            $table->boolean('admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
