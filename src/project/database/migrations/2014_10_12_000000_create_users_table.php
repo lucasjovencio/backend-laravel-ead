@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nome',30);
             $table->string('sobrenome',100);
-            $table->string('cpfcpnj',14);
+            $table->string('cpfcnpj',14)->unique();
             $table->string('email',199)->unique();
             $table->string('imagem',199)->nullable();
             $table->boolean('admin')->default(0);
