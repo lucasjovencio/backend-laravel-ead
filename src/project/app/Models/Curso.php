@@ -17,4 +17,9 @@ class Curso extends Model
     protected $fillable = [
         'nome','descricao',
     ];
+
+    public function scopeId($query,$id)
+    {
+        return $query->where('id',$id);
+    }
 }
