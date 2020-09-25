@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome','sobrenome','cpfcpnj','imagem', 'email', 'password',
+        'nome','sobrenome','cpfcnpj','imagem', 'email', 'password',
     ];
 
     /**
@@ -36,4 +38,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'url_imagem','nome_completo'
+    ];
+
+    public function getUrlImagemAttribute()
+    {
+        return asset("public/".$this->imagem);
+    }
+
+    public function getNomeCompletoAttribute()
+    {
+        return $this->nome." ".$this->sobrenome;
+    }
+
+    public function scopeId($query,$id)
+    {
+        return $query->where('id',$id);
+    }
 }
