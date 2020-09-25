@@ -229,4 +229,11 @@ return [
 
     ],
 
+
+    "storage" => [
+        'driver'        => env('FILESYSTEM_DRIVER', 'public'),
+        'visibility'    => env('FILESYSTEM_VISIBILITY', 'public'),
+
+    ],
+
 ];
