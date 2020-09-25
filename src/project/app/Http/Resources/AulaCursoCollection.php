@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class UserCollection extends ResourceCollection
+class AulaCursoCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -19,12 +19,8 @@ class UserCollection extends ResourceCollection
             'data' => $this->collection->map(function($item){
                     return [
                         'id'=>$item->id,
-                        'nome'=>$item->nome,
-                        'sobrenome'=>$item->sobrenome,
-                        'nome_completo'=>$item->nome_completo,
-                        'cpfcnpj'=>$item->cpfcnpj,
-                        'imagem'=>$item->url_imagem,
-                        'email'=>$item->email,
+                        'aulas_id'=>$item->aulas_id,
+                        'cursos_id'=>$item->cursos_id,
                     ];
             }),
             'pagination' => [
