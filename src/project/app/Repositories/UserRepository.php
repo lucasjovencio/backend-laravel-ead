@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\User as Model;
 use App\Http\Resources\UserCollection as UserCollectionResource;
 use App\Http\Resources\User as UserResource;
+
 class UserRepository
 {
     private $model;
