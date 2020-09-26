@@ -47,7 +47,7 @@ class CreateTurmaService
             'nome.max'                          => 'O nome da turma excedeu 30 caracteres.',
             'cursos_id.required'                => 'O curso é obrigatório.',
             'cursos_id.exists'                  => 'O curso informado não existe.',
-            'turno.required'                    => 'O curso é obrigatório.',
+            'turno.required'                    => 'O turno é obrigatório.',
             'turno.in'                          => 'Apenas as opções Manhã, Tarde e Noite são permitidas.',
         ])->validate();
     }

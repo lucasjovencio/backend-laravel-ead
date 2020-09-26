@@ -39,7 +39,7 @@ class TurmaController extends Controller
     public function show($user,TurmaRepository $turmaRepository)
     {
         try{
-            return $this->jsonResponseSuccess($turmaRepository->showUser($user),200);
+            return $this->jsonResponseSuccess($turmaRepository->showTurma($user),200);
         }
         catch(\Exception $e){
             return $this->jsonResponseError($e->getMessage(),500);
