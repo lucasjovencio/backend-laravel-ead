@@ -46,4 +46,14 @@ class AulaController extends Controller
             return $this->jsonResponseError($e->getMessage(),500);
         }
     }
+
+    public function select(Request $request,AulaRepository $aulaRepository)
+    {
+        try{
+            return $this->jsonResponseSuccess($aulaRepository->select($request),200);
+        }
+        catch(\Exception $e){
+            return $this->jsonResponseError($e->getMessage(),500);
+        }
+    }
 }
