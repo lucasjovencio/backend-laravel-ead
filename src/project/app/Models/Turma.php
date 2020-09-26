@@ -40,4 +40,9 @@ class Turma extends Model
                 return 'Indefinido';
         }
     }
+
+    public function curso()
+    {
+        return $this->belongsTo(\App\Models\Curso::class,'cursos_id')->withTrashed();
+    }
 }

@@ -45,4 +45,14 @@ class AulaCursoController extends Controller
             return $this->jsonResponseError($e->getMessage(),500);
         }
     }
+
+    public function curso($id,AulaCursoRepository $aulaCursoRepository)
+    {
+        try{
+            return $this->jsonResponseSuccess($aulaCursoRepository->showCurso($id),200);
+        }
+        catch(\Exception $e){
+            return $this->jsonResponseError($e->getMessage(),500);
+        }
+    }
 }

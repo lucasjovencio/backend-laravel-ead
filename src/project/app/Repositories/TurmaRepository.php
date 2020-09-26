@@ -17,12 +17,12 @@ class TurmaRepository
    
     public function paginateTurmas(Object $request,$paginate=5)
     {
-        return new TurmaCollectionResource($this->model->paginate($paginate));
+        return new TurmaCollectionResource($this->model->with('curso')->paginate($paginate));
     }
 
     public function showTurma(int $turma)
     {
-        return new TurmaResource($this->model->id($turma)->firstOrFail());
+        return new TurmaResource($this->model->id($turma)->with('curso')->firstOrFail());
     }
 
 }

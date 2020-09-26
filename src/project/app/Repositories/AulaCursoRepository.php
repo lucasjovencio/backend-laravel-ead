@@ -25,4 +25,9 @@ class AulaCursoRepository
         return new AulaCursoResource($this->model->id($curso)->firstOrFail());
     }
 
+    public function showCurso(int $curso,$paginate=5)
+    {
+        return new AulaCursoCollectionResource($this->model->curso($curso)->with('aula')->paginate($paginate));
+    }
+
 }

@@ -45,4 +45,15 @@ class UserTurmaController extends Controller
             return $this->jsonResponseError($e->getMessage(),500);
         }
     }
+
+    public function turma($turma,UserTurmaRepository $userTurmaRepository)
+    {
+        try{
+            return $this->jsonResponseSuccess($userTurmaRepository->showTurma($turma),200);
+        }
+        catch(\Exception $e){
+            return $this->jsonResponseError($e->getMessage(),500);
+        }
+    }
+    
 }

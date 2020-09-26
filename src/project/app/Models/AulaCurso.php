@@ -29,4 +29,9 @@ class AulaCurso extends Model
     {
         return $query->where('cursos_id',$id);
     }
+
+    public function aula()
+    {
+        return $this->belongsTo(\App\Models\Aula::class,'aulas_id')->withTrashed();
+    }
 }

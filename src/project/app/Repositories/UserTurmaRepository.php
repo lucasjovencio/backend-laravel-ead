@@ -24,4 +24,9 @@ class UserTurmaRepository
     {
         return new UserTurmaResource($this->model->id($user)->firstOrFail());
     }
+
+    public function showTurma(int $turma,$paginate=5)
+    {
+        return new UserTurmaCollectionResource($this->model->with('participante')->paginate($paginate));
+    }
 }
