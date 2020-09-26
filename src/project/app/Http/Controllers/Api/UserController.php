@@ -29,7 +29,7 @@ class UserController extends Controller
     public function index(Request $request,UserRepository $userRepository)
     {
         try{
-            return $this->jsonResponseSuccess($userRepository->paginateUsers($request,2),200);
+            return $this->jsonResponseSuccess($userRepository->paginateUsers($request),200);
         }
         catch(\Exception $e){
             return $this->jsonResponseError($e->getMessage(),500);

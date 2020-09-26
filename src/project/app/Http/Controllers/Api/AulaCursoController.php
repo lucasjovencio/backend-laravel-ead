@@ -29,7 +29,7 @@ class AulaCursoController extends Controller
     public function index(Request $request,AulaCursoRepository $aulaCursoRepository)
     {
         try{
-            return $this->jsonResponseSuccess($aulaCursoRepository->paginateAulaCursos($request,2),200);
+            return $this->jsonResponseSuccess($aulaCursoRepository->paginateAulaCursos($request),200);
         }
         catch(\Exception $e){
             return $this->jsonResponseError($e->getMessage(),500);

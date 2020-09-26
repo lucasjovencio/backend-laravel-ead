@@ -29,7 +29,7 @@ class UserTurmaController extends Controller
     public function index(Request $request,UserTurmaRepository $userTurmaRepository)
     {
         try{
-            return $this->jsonResponseSuccess($userTurmaRepository->paginateUserTurmas($request,2),200);
+            return $this->jsonResponseSuccess($userTurmaRepository->paginateUserTurmas($request),200);
         }
         catch(\Exception $e){
             return $this->jsonResponseError($e->getMessage(),500);
