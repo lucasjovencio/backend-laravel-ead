@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User as Model;
 use App\Http\Resources\UserCollection as UserCollectionResource;
+use App\Http\Resources\UserSelectCollection as UserSelectCollectionResource;
 use App\Http\Resources\User as UserResource;
 
 class UserRepository
@@ -24,4 +25,10 @@ class UserRepository
     {
         return new UserResource($this->model->id($user)->firstOrFail());
     }
+
+    public function select(Object $request)
+    {
+        return new UserSelectCollectionResource($this->model->all());
+    }
+    
 }

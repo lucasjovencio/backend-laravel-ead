@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Aula as Model;
 use App\Http\Resources\AulaCollection as AulaCollectionResource;
+use App\Http\Resources\AulaSelectCollection as AulaSelectCollectionResource;
 use App\Http\Resources\Aula as AulaResource;
 
 class AulaRepository
@@ -23,6 +24,11 @@ class AulaRepository
     public function showAula(int $aula)
     {
         return new AulaResource($this->model->id($aula)->firstOrFail());
+    }
+
+    public function select(Object $request)
+    {
+        return new AulaSelectCollectionResource($this->model->all());
     }
 
 }

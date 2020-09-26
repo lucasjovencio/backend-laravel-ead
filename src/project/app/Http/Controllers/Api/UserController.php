@@ -45,4 +45,15 @@ class UserController extends Controller
             return $this->jsonResponseError($e->getMessage(),500);
         }
     }
+
+    public function select(Request $request,UserRepository $userRepository)
+    {
+        try{
+            return $this->jsonResponseSuccess($userRepository->select($request),200);
+        }
+        catch(\Exception $e){
+            return $this->jsonResponseError($e->getMessage(),500);
+        }
+    }
+    
 }
