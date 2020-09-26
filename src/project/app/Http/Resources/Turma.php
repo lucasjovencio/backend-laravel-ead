@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Curso;
 
 class Turma extends JsonResource
 {
@@ -20,6 +21,7 @@ class Turma extends JsonResource
             'cursos_id'=>$this->cursos_id,
             'turno'=>$this->turno,
             'turno_txt'=>$this->turno_txt,
+            'curso'=> new Curso($this->curso)
         ];
     }
 }

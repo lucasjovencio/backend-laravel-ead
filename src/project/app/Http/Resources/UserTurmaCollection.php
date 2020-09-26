@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-
+use App\Http\Resources\User;
 class UserTurmaCollection extends ResourceCollection
 {
     /**
@@ -23,6 +23,7 @@ class UserTurmaCollection extends ResourceCollection
                         'turmas_id'=>$item->turmas_id,
                         'tipo'=>$item->tipo,
                         'tipo_txt'=>$item->tipo_txt,
+                        'participante'=>new User($item->participante),
                     ];
             }),
             'pagination' => [

@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-
+use App\Http\Resources\Curso;
 class TurmaCollection extends ResourceCollection
 {
     /**
@@ -23,6 +23,7 @@ class TurmaCollection extends ResourceCollection
                         'cursos_id'=>$item->cursos_id,
                         'turno'=>$item->turno,
                         'turno_txt'=>$item->turno_txt,
+                        'curso'=> new Curso($item->curso)
                     ];
             }),
             'pagination' => [

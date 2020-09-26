@@ -17,7 +17,7 @@ class AulaCurso extends JsonResource
         return [
             'id'=>$this->id,
             'aulas_id'=>$this->aulas_id,
-            'cursos_id'=>$this->cursos_id,
+            'cursos_id'=>$this->cursos_id
         ];
     }
 }

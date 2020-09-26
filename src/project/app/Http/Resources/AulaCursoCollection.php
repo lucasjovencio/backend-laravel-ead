@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\Aula;
 
 class AulaCursoCollection extends ResourceCollection
 {
@@ -21,6 +22,7 @@ class AulaCursoCollection extends ResourceCollection
                         'id'=>$item->id,
                         'aulas_id'=>$item->aulas_id,
                         'cursos_id'=>$item->cursos_id,
+                        'aula'=> new Aula($item->aula)
                     ];
             }),
             'pagination' => [
