@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Curso as Model;
 use App\Http\Resources\CursoCollection as CursoCollectionResource;
+use App\Http\Resources\CursoSelectCollection as CursoSelectCollectionResource;
 use App\Http\Resources\Curso as CursoResource;
 
 class CursoRepository
@@ -23,6 +24,11 @@ class CursoRepository
     public function showCurso(int $curso)
     {
         return new CursoResource($this->model->id($curso)->firstOrFail());
+    }
+
+    public function select(Object $request)
+    {
+        return new CursoSelectCollectionResource($this->model->all());
     }
 
 }

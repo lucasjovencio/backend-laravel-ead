@@ -16,13 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('v1')->group(function(){
+
     Route::get('users/select','Api\UserController@select');
     Route::resource('users','Api\UserController');
+
     Route::get('aulas/select','Api\AulaController@select');
     Route::resource('aulas','Api\AulaController');
+
+    Route::get('cursos/select','Api\CursoController@select');
     Route::resource('cursos','Api\CursoController');
+
     Route::resource('aula-cursos','Api\AulaCursoController');
     Route::get('aula-cursos/curso/{id}','Api\AulaCursoController@curso');
+    
     Route::resource('turmas','Api\TurmaController');
     Route::resource('user-turmas','Api\UserTurmaController');
     Route::get('user-turmas/turma/{id}','Api\UserTurmaController@turma');

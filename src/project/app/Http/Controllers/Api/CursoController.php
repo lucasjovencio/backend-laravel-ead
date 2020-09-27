@@ -45,4 +45,14 @@ class CursoController extends Controller
             return $this->jsonResponseError($e->getMessage(),500);
         }
     }
+
+    public function select(Request $request,CursoRepository $cursoRepository)
+    {
+        try{
+            return $this->jsonResponseSuccess($cursoRepository->select($request),200);
+        }
+        catch(\Exception $e){
+            return $this->jsonResponseError($e->getMessage(),500);
+        }
+    }
 }
