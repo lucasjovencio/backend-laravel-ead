@@ -40,6 +40,7 @@ class DevInstall extends Command
         $output = shell_exec('composer run-script post-root-package-install'); 
         $output = shell_exec('php artisan key:generate'); 
         $output = shell_exec('php artisan storage:link'); 
+        $output = shell_exec('ln -s /var/www/html/storage/app/public /var/www/html/public'); 
         $output = shell_exec('php artisan config:cache'); 
         $output = shell_exec('php artisan migrate'); 
         return 0;
